@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant U as User
+    participant W as WebGUI
+    participant I as OIDC Provider
+    participant G as LLM Gateway
+    participant P as LLM Provider
+    U->>W: Access platform
+    W->>I: Redirect to login
+    U->>I: Authenticate
+    I-->>W: Return token
+    U->>W: Submit prompt
+    W->>G: Forward prompt
+    G->>P: Request completion
+    P-->>G: Return response
+    G-->>W: Send response
+    W-->>U: Display answer
