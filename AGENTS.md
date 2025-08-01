@@ -3,6 +3,7 @@
 This document provides guidance for AI agents working in this repository.
 
 ## Development workflow
+- Do not modify `AGENTS.md` unless explicitly requested.
 - Use `rg` for searching; avoid commands like `grep -R` or `ls -R`.
 - After modifying files, run all available tests with `pytest`. If other test suites are introduced, run them as well.
 - Keep commits focused and descriptive, using the present tense (e.g., "Add feature" rather than "Added feature").
