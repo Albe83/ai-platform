@@ -1,0 +1,16 @@
+%%{init: { 'theme': 'neutral' } }%%
+C4Context
+    title AI Platform Context
+    Person(user, "User", "Interacts with the platform")
+    System_Boundary(platform, "AI Platform") {
+        System(webgui, "WebGUI", "OpenWebUI interface")
+        System(gateway, "LLM Gateway", "LiteLLM abstraction layer")
+    }
+    System_Ext(openai, "OpenAI", "External LLM provider")
+    System_Ext(anthropic, "Anthropic", "External LLM provider")
+    System_Ext(mistral, "Mistral", "On-prem LLM")
+    Rel(user, webgui, "Uses")
+    Rel(webgui, gateway, "Sends prompts")
+    Rel(gateway, openai, "Forwards requests")
+    Rel(gateway, anthropic, "Forwards requests")
+    Rel(gateway, mistral, "Forwards requests")
