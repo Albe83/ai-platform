@@ -15,7 +15,16 @@ This document provides guidance for AI agents working in this repository.
 - Update documentation or comments when behavior changes or new features are introduced.
 - Prefer Markdown as the format for documentation artifacts.
 - Create diagrams as code using Mermaid embedded in Markdown files.
-- Validate Mermaid diagrams with `mmdc` (mermaid-cli) to ensure syntax is correct and diagrams render successfully.
+- Validate Mermaid diagrams with `mmdc` (Mermaid CLI) to ensure syntax is correct and diagrams render successfully.
+  - Install Mermaid CLI if it is not already available:
+    ```bash
+    npm install -g @mermaid-js/mermaid-cli
+    ```
+  - Render a diagram to check for syntax errors:
+    ```bash
+    mmdc -i diagram.mmd -o /tmp/diagram.svg
+    ```
+    The command fails when the diagram contains invalid syntax.
 - Use the C4 model for architecture diagrams.
 - Use sequence diagrams for component interactions.
 
