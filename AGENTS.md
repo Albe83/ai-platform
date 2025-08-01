@@ -1,0 +1,15 @@
+# Guidelines for AI Agents
+
+This document provides guidance for AI agents working in this repository.
+
+## Development workflow
+- Use `rg` for searching; avoid commands like `grep -R` or `ls -R`.
+- After modifying files, run all available tests with `pytest`. If other test suites are introduced, run them as well.
+- Keep commits focused and descriptive, using the present tense (e.g., "Add feature" rather than "Added feature").
+
+## Code style
+- Maintain consistent formatting with any tools configured in the repository. If formatting tools (such as `black` or `pre-commit`) are available, run them before committing.
+
+## Documentation
+- Update documentation or comments when behavior changes or new features are introduced.
+
