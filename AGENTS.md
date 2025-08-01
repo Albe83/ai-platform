@@ -15,6 +15,7 @@ This document provides guidance for AI agents working in this repository.
 - Update documentation or comments when behavior changes or new features are introduced.
 - Prefer Markdown as the format for documentation artifacts.
 - Create diagrams as code using Mermaid embedded in Markdown files.
+- Validate Mermaid diagrams with `mmdc` (mermaid-cli) to ensure syntax is correct and diagrams render successfully.
 - Use the C4 model for architecture diagrams.
 - Use sequence diagrams for component interactions.
 
