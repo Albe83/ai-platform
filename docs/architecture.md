@@ -32,14 +32,14 @@ C4Context
         System_Ext(gemini, "Gemini", "External LLM provider")
     }
 
-    Rel(user, webgui, "Uses")
+    Rel(user, webgui, "Uses chat interface")
     Rel(user, idp, "Login via OIDC")
     Rel(webgui, idp, "Verify token signature")
-    Rel(webgui, gateway, "Sends prompts")
-    Rel(gateway, mistral, "Forwards requests")
-    Rel(gateway, openai, "Forwards requests")
-    Rel(gateway, anthropic, "Forwards requests")
-    Rel(gateway, gemini, "Forwards requests")
+    Rel(webgui, gateway, "Sends prompts for processing")
+    Rel(gateway, mistral, "Forwards to local LLM")
+    Rel(gateway, openai, "Forwards to external LLM")
+    Rel(gateway, anthropic, "Forwards to external LLM")
+    Rel(gateway, gemini, "Forwards to external LLM")
 ```
 
 ## Interaction Sequence
