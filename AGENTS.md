@@ -10,9 +10,11 @@ This document provides guidance for AI agents working in this repository.
 
 ## Code style
 - Maintain consistent formatting with any tools configured in the repository. If formatting tools (such as `black` or `pre-commit`) are available, run them before committing.
-
 ## Documentation
+- Use English for all documentation, comments, and notes.
 - Update documentation or comments when behavior changes or new features are introduced.
 - Prefer Markdown as the format for documentation artifacts.
 - Create diagrams as code using Mermaid embedded in Markdown files.
+- Use the C4 model for architecture diagrams.
+- Use sequence diagrams for component interactions.
 
