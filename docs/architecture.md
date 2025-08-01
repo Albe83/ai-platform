@@ -18,7 +18,7 @@ C4Context
     UpdateLayoutConfig("3", "1")
 
     Person(user, "User", "Interacts with the platform")
-    System_Ext(oidc, "OIDC Provider", "Microsoft Entra ID")
+    System_Ext(idp, "Identity Provider", "Microsoft Entra ID")
 
     System_Boundary(platform, "AI Platform") {
         System(webgui, "WebGUI", "OpenWebUI")
@@ -29,14 +29,17 @@ C4Context
     System_Boundary(llms, "External LLMs") {
         System_Ext(openai, "OpenAI", "External LLM provider")
         System_Ext(anthropic, "Anthropic", "External LLM provider")
+        System_Ext(gemini, "Gemini", "External LLM provider")
     }
 
     Rel(user, webgui, "Uses")
-    Rel(webgui, oidc, "Authenticates users")
+    Rel(user, idp, "Login via OIDC")
+    Rel(webgui, idp, "Verify token signature")
     Rel(webgui, gateway, "Sends prompts")
+    Rel(gateway, mistral, "Forwards requests")
     Rel(gateway, openai, "Forwards requests")
     Rel(gateway, anthropic, "Forwards requests")
-    Rel(gateway, mistral, "Forwards requests")
+    Rel(gateway, gemini, "Forwards requests")
 ```
 
 ## Interaction Sequence
