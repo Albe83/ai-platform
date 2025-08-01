@@ -15,6 +15,8 @@ This document describes an AI Platform that exposes AI capabilities through a we
 %%{init: { 'theme': 'neutral' } }%%
 C4Context
     title AI Platform Context
+    UpdateLayoutConfig("3", "1")
+
     Person(user, "User", "Interacts with the platform")
     System_Ext(oidc, "OIDC Provider", "Microsoft Entra ID")
 
