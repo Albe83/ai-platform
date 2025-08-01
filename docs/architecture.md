@@ -16,14 +16,16 @@ This document describes an AI Platform that exposes AI capabilities through a we
 C4Context
     title AI Platform Context
     Person(user, "User", "Interacts with the platform")
+    System_Boundary(llms, "External LLMs") {
+        System_Ext(openai, "OpenAI", "External LLM provider")
+        System_Ext(anthropic, "Anthropic", "External LLM provider")
+    }
     System_Boundary(platform, "AI Platform") {
-        System(webgui, "WebGUI", "OpenWebUI interface")
+        System(webgui, "WebGUI", "OpenWebUI")
         System(gateway, "LLM Gateway", "LiteLLM abstraction layer")
+        System(mistral, "Mistral AI", "ollama")
     }
     System_Ext(oidc, "OIDC Provider", "Microsoft Entra ID")
-    System_Ext(openai, "OpenAI", "External LLM provider")
-    System_Ext(anthropic, "Anthropic", "External LLM provider")
-    System_Ext(mistral, "Mistral", "On-prem LLM")
     Rel(user, webgui, "Uses")
     Rel(webgui, oidc, "Authenticates users")
     Rel(webgui, gateway, "Sends prompts")
