@@ -13,4 +13,6 @@ This document provides guidance for AI agents working in this repository.
 
 ## Documentation
 - Update documentation or comments when behavior changes or new features are introduced.
+- Prefer Markdown as the format for documentation artifacts.
+- Create diagrams as code using Mermaid embedded in Markdown files.
 
