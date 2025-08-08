@@ -1,0 +1,10 @@
+%%{init: { 'theme': 'neutral' } }%%
+C4Container
+    title OpenWebUI Detail
+    Person(user, "User", "Interacts with the UI")
+    Container(web, "OpenWebUI", "Python", "Main web application")
+    ContainerDb(db, "Database", "PostgreSQL", "Stores configuration and chat history")
+    System_Ext(litellm, "LiteLLM", "LLM gateway")
+    Rel(user, web, "Uses")
+    Rel(web, db, "Reads and writes", "SQL")
+    Rel(web, litellm, "Sends prompts", "HTTP")
