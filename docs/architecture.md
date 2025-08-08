@@ -7,6 +7,7 @@ This document describes an AI Platform that exposes AI capabilities through a we
 - **WebGUI**: User-facing interface built on OpenWebUI.
 - **Identity Provider**: OIDC-compliant service (e.g., Microsoft Entra ID) that authenticates users for the WebGUI.
 - **LLM Gateway**: Abstraction layer based on LiteLLM that routes requests to different model providers.
+- **Database**: Relational store backed by PostgreSQL for persisting application data.
 - **External Providers**: Managed or self-hosted large language models such as OpenAI, Anthropic, Gemini, or on-premise models like Mistral.
 
 ## Context Diagram
@@ -40,6 +41,21 @@ C4Context
     Rel(gateway, openai, "Forwards to external LLM")
     Rel(gateway, anthropic, "Forwards to external LLM")
     Rel(gateway, gemini, "Forwards to external LLM")
+```
+
+## OpenWebUI Detail
+
+```mermaid
+%%{init: { 'theme': 'neutral' } }%%
+C4Container
+    title OpenWebUI Detail
+    Person(user, "User", "Interacts with the UI")
+    Container(web, "OpenWebUI", "Python", "Main web application")
+    ContainerDb(db, "Database", "PostgreSQL", "Stores configuration and chat history")
+    System_Ext(litellm, "LiteLLM", "LLM gateway")
+    Rel(user, web, "Uses")
+    Rel(web, db, "Reads and writes", "SQL")
+    Rel(web, litellm, "Sends prompts", "HTTP")
 ```
 
 ## Interaction Sequence
