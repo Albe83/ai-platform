@@ -1,10 +1,21 @@
 %%{init: { 'theme': 'neutral' } }%%
 C4Container
     title OpenWebUI Detail
+
+    UpdateLayoutConfig("3", "1")
+
     Person(user, "User", "Interacts with the UI")
-    Container(web, "OpenWebUI", "Python", "Main web application")
-    ContainerDb(db, "Database", "PostgreSQL", "Stores configuration and chat history")
-    System_Ext(litellm, "LiteLLM", "LLM gateway")
+
+    System_Boundary(owui, "OpenWebUI") {
+        Container(web, "OpenWebUI", "Python", "Main web application")
+        ContainerDb(db, "Database", "PostgreSQL", "Stores configuration and chat history")
+    }
+
+    System_Boundary(llmGateway, "LLM Gateway") {
+        Container(gateway, "LiteLLM", "Python", "LLM Gateway")
+    }
+
     Rel(user, web, "Uses")
     Rel(web, db, "Reads and writes", "SQL")
-    Rel(web, litellm, "Sends prompts", "HTTP")
+    Rel(web, gateway, "Sends prompts", "HTTP")
+
